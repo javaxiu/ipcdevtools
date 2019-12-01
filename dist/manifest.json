@@ -1,0 +1,32 @@
+{
+  "name": "ipcwork",
+  "version": "1.0.0",
+  "description": "ipc network monitor",
+  "devtools_page": "devtools.html",
+  "permissions": [ "file:///*", "http://*/*", "https://*/*" ],
+  "content_scripts": [
+    {
+      "matches": [ "\u003Call_urls>" ],
+      "js": ["./content_script.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [ "devtools.js", "devtools.html", "devtools/index.html", "devtools/js/app.js", "devtools/js/chunk-vendors.js", "devtools/css/app.css" ]
+}
