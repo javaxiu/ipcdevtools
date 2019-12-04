@@ -1,5 +1,5 @@
 module.exports = {
   filenameHashing: false,
-  outputDir: '../dist/devtools',
+  outputDir: '../extension/devtools',
   assetsDir: ''
 }

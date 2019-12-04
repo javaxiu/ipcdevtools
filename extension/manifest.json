@@ -6,12 +6,16 @@
   "permissions": [ "file:///*", "http://*/*", "https://*/*" ],
   "content_scripts": [
     {
-      "matches": [ "\u003Call_urls>" ],
+      "matches": [ "file:///*", "http://localhost:8080/" ],
       "js": ["./content_script.js"],
       "run_at": "document_end",
       "all_frames": true
     }
   ],
+  "background": {
+    "persistent": false,
+    "scripts": [ "background.js" ]
+  },
   "browser_action": {
     "default_icon": {
       "16": "images/icon16.png",
@@ -26,6 +30,8 @@
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
+  "minimum_chrome_version": "49",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1O4jMKHC7ISrQOagqNK3xU6H+u4xHFqS0oadnIh4DH9LqUGSFXxAhcW5NiD+wRZWVp5/bht/EeVskZH9CexLsowhUlXO+JliMrFezZH5tWa+jjpK6UxVTW6Qb3w/8W511U/aYZWtrJcCAlYrt2EFuq+r31hIguUQOVcbLIr3a09yY4Wwx4V/EQc+foafwCpA+95aezSSQTzfj9zemMrSCsvdBPAVX40mcVqwUl/zY/t5VUblwG/Jr1LFHO1MxhWtzvLL08vNMQflFad0ysbIOow3c+Zirc3jHgfKRKzhwkGDi+zPtOQEkFFP78+PVIiXNwAkkzyMZX1EnEdn+fLvSQIDAQAB",
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "web_accessible_resources": [ "devtools.js", "devtools.html", "devtools/index.html", "devtools/js/app.js", "devtools/js/chunk-vendors.js", "devtools/css/app.css" ]
